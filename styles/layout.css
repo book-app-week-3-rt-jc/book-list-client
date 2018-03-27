@@ -1,0 +1,22 @@
+header {
+    padding: 10vw 5vw;
+}
+
+div {
+    margin: 10vw 4vw;
+    padding: 2vw;
+}
+
+li {
+    padding-left: 5vw;
+}
+
+footer {
+    padding: 15vw;
+}
+
+@media only screen and (min-width: 640px) {
+    li {
+        padding-left: 25vw;
+    }
+}
