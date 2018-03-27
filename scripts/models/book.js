@@ -35,7 +35,7 @@ var app = app || {};
   }
 
   Book.fetchAll = callback => {
-    $.get(`http://localhost:3000/api/v1/books`)
+    $.get(`https://rt-jc-booklist.herokuapp.com//api/v1/books`)
       .then(results => {
         Book.loadAll(results);
         callback();
