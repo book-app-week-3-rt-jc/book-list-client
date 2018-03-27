@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Book List</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+    <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
     <script id="book-list-template" type="text/x-handlebars-template"> 
-    <img src="{{image_url}}">
-    <ul>
-      <li><h1>{{title}}</h1></li>
-      <li><h2>{{author}}</h2></li>
-    </ul>
+    <div>
+        <img src="{{image_url}}">
+        <ul>
+            <li><h1>{{title}}</h1></li>
+            <li><h2>{{author}}</h2></li>
+        </ul>
+    </div>
     </script>
     <script id="error-template" type="text/x-handlebars-template">
-      <h1>{{err}}</h1>
+        <h1>{{err}}</h1>
     </script>
 </head>
 <body>
