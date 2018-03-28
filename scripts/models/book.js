@@ -7,7 +7,6 @@ var app = app || {};
 (function (module){
 
 
-
   function Book(rawDataObject){
     this.title = rawDataObject.title;
     this.author = rawDataObject.author;
@@ -16,6 +15,7 @@ var app = app || {};
     this.description = rawDataObject.description;
 
   }
+
   Book.all = [];
 
 
@@ -39,7 +39,15 @@ var app = app || {};
       .then(results => {
         Book.loadAll(results);
         callback();
-      }, err => errorCallback(err));
+      }, err => app.errorView.errorCallback(err));
+  };
+  Book.fetchOne = callback => {
+    $.get(`https://rt-jc-booklist.herokuapp.com/api/v1/books`);
+
+  };
+  Book.prototype.insertBook = function(callback){
+    $.post(`https://rt-jc-booklist.herokuapp.com/api/v1/books`, {title:this.title, author:this.author, isbn:this.isbn, image_url:this.image_url, description:this.description})
+      .then(callback);
   };
 
   module.Book = Book;
