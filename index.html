@@ -27,16 +27,49 @@
 <body>
     <header>
         <h1>Books App</h1>
+        <nav>
+            <li></li>
+        </nav>
     </header>
     <section id="book-list" class="book-view container"></section>
     <section id="error-message" class="error-view container"></section>
+    <section class="detail-view container"></section>
+    <section id="write" class="container">
+        <form action="#" id="book-form">
+            <label>
+                <input type="text" id="book-title" placeholder="Book title" required>
+            </label>
+            
+            <label>
+                <input type="text" id="book-author" placeholder="Book author" required>
+            </label> 
+            
+            <label>
+                <input type="text" id="book-isbn" placeholder="Book isbn" required>
+            </label> 
+            
+            <label>
+                <input type="text" id="book-image_url" placeholder="Book image url" required>
+            </label>
+            
+            <label>
+                <textarea id="book-description" rows="8" cols="40" required></textarea>
+            </label>
+
+            <button type="submit">Submit</button>
+        
+        </form>
+    
+    </section>
+
     <footer></footer>
     
     <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>   
     <script src="scripts/views/error-view.js"></script>

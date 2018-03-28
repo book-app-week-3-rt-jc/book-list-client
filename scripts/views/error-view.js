@@ -8,16 +8,16 @@ var app = app || {};
   errorView.initErrorPage = (err) => {
     $('.container').hide();
     $('.error-view').show();
-    $(`#error-message`).innerHtml = '';
+    $(`#error-message`).empty();
     let template = Handlebars.compile($('#error-template').text());
-    $(`#error-message`).append(template(err));   
+    $(`#error-message`).append(template(err));
 
   };
 
-  function errorCallBack(error){
+  errorView.errorCallBack = (error) => {
     console.error(error);
     errorView.initErrorPage(error);
-  }
+  };
 
 
 
