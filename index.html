@@ -17,7 +17,7 @@
         <ul>
             <li><h1>{{title}}</h1></li>
             <li><h2>{{author}}</h2></li>
-            <li><a href="/book/{{book_id}}">Book Details</a></li>
+            <li><a href="/books/{{book_id}}">Book Details</a></li>
         </ul>
     </div>
     </script>
@@ -32,14 +32,16 @@
                 <li><h2>{{author}}</h2></li>
                 <li><h3>{{isbn}}</h3></li>
                 <li><p>{{description}}</p></li>
+                <li><a href="/">Home</a></li>
             </ul>
         </div>
         </script>
 </head>
 <body>
-    <header>
-        <h1>Books App</h1>
-        <nav>
+    <header class="site-header clearfix">
+        <h1 class="heading-group-h1">Books App</h1>
+        <nav class="main-nav">
+            <div class="icon-menu"></div>
             <ul>
                 <li class="nav"><a href="/">Home</a></li>
                 <li class="nav"><a href="/books/new">New Book</a></li>
@@ -47,6 +49,9 @@
         </nav>
     </header>
     <section id="book-list" class="book-view container"></section>
+    <section class="about-view container">
+        <h2>Hi this is site has been made by Jimmy Chang and Richard Tae</h2>
+    </section>
     <section id="error-message" class="error-view container"></section>
     <section id="detail-list" class="detail-view container"></section>
     <section id="write" class="form-view container">

@@ -9,14 +9,23 @@ div {
 
 li {
     padding-left: 5vw;
+    line-height: 8vw;
 }
 
 footer {
     padding: 15vw;
 }
 
+.heading-group-h1{
+    max-width: 80%;
+}
+
+
 @media only screen and (min-width: 640px) {
     li {
         padding-left: 25vw;
     }
 }
+
+
+
