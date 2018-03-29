@@ -10,7 +10,6 @@ var app = app || {};
     $('.container').hide();
     $('.book-view').show();
     app.Book.all.map(a => $('#book-list').append(a.toHtml('#book-list')));
-
   };
 
   bookView.initDetailPage = (ctx) => {
@@ -23,7 +22,6 @@ var app = app || {};
   bookView.initNewBookPage = () => {
     $('.container').hide();
     $('.form-view').show();
-
     $('#book-form').on('submit', bookView.create);
 
   };
