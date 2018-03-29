@@ -2,10 +2,14 @@
 
 var app = app || {};
 
+const ENV = {};
 
+ENV.isProduction = window.location.protocol === 'https:';
+ENV.productionApiUrl = 'https://rt-jc-booklist.herokuapp.com';
+ENV.developmentApiUrl = 'http://localhost:3000';
+ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
 (function (module){
-
 
   function Book(rawDataObject){
     this.title = rawDataObject.title;
@@ -34,16 +38,14 @@ var app = app || {};
   };
 
   Book.fetchAll = callback => {
-    $.get(`http://localhost:3000/api/v1/books`)
-    // $.get(`https://rt-jc-booklist.herokuapp.com/api/v1/books`)
+    $.get(`${ENV.apiUrl}/api/v1/books`)
       .then(results => {
         Book.loadAll(results);
         callback();
       }, err => app.errorView.errorCallback(err));
   };
   Book.fetchOne = (ctx, callback) => {
-    $.get(`http://localhost:3000/api/v1/books${ctx.params.book_id}`)
-    // $.get(`https://rt-jc-booklist.herokuapp.com/api/v1/books/${ctx.params.book_id}`)
+    $.get(`${ENV.apiUrl}/api/v1/books/${ctx.params.book_id}`)
       .then(results => {
         Book.loadAll(results);
         callback(ctx);
@@ -51,14 +53,14 @@ var app = app || {};
   };
 
   Book.fetchForm = callback => {
-    $.get(`https://rt-jc-booklist.herokuapp.com/api/v1/books`)
+    $.get(`${ENV.apiUrl}/api/v1/books`)
       .then( () => {
         callback();
       }, err => app.errorView.errorCallback(err));
   };
 
   Book.prototype.insertBook = function(callback){
-    $.post(`https://rt-jc-booklist.herokuapp.com/api/v1/books/new`, {title:this.title, author:this.author, isbn:this.isbn, image_url:this.image_url, description:this.description})
+    $.post(`${ENV.apiUrl}/api/v1/books/new`, {title:this.title, author:this.author, isbn:this.isbn, image_url:this.image_url, description:this.description})
       .then(callback);
   };
 
