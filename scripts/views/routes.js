@@ -1,6 +1,12 @@
 'use strict';
 
+// if(window.location.pathname !== '/'){
+//   page.base('/book-list-client');
+// }
 
-page('/', app.Book.fetchAll(app.bookView.initIndexPage));
-page('/books/:book_id', app.Book.fetchOne(app.bookView.initIndexPage));
-page('/book/new', app.bookView.initNewBookPage);
+
+page('/', ctx => app.Book.fetchAll(app.bookView.initIndexPage));
+page('/books/new', ctx => app.Book.fetchForm(app.bookView.initNewBookPage));
+page('/books/:book_id', ctx => app.Book.fetchOne(ctx, app.bookView.initIndexPage));
+
+page();
