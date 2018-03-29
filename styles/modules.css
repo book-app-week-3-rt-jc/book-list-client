@@ -46,3 +46,12 @@ footer {
     border: 5px solid green;
     border-radius: 35vw;
 }
+
+label {
+    display: block;
+    margin: 4.2vw;
+}
+
+button {
+    margin: 0vw 0vw 4.2vw 4.2vw;
+}
