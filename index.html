@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- <base href="."> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -17,24 +18,39 @@
         <ul>
             <li><h1>{{title}}</h1></li>
             <li><h2>{{author}}</h2></li>
+            <li><a href="/book/{{book_id}}">Book Details</a></li>
         </ul>
     </div>
     </script>
     <script id="error-template" type="text/x-handlebars-template">
         <h1>{{err}}</h1>
     </script>
+    <script id="detail-list-template" type="text/x-handlebars-template"> 
+        <div>
+            <img src="{{image_url}}">
+            <ul>
+                <li><h1>{{title}}</h1></li>
+                <li><h2>{{author}}</h2></li>
+                <li><h3>{{isbn}}</h3></li>
+                <li><p>{{description}}</p></li>
+            </ul>
+        </div>
+        </script>
 </head>
 <body>
     <header>
         <h1>Books App</h1>
         <nav>
-            <li></li>
+            <ul>
+                <li class="nav"><a href="/">Home</a></li>
+                <li class="nav"><a href="/books/new">New Book</a></li>
+            </ul>
         </nav>
     </header>
     <section id="book-list" class="book-view container"></section>
     <section id="error-message" class="error-view container"></section>
-    <section class="detail-view container"></section>
-    <section id="write" class="container">
+    <section id="detail-list" class="detail-view container"></section>
+    <section id="write" class="form-view container">
         <form action="#" id="book-form">
             <label>
                 <input type="text" id="book-title" placeholder="Book title" required>
@@ -73,8 +89,6 @@
     <script src="scripts/models/book.js"></script>
     <script src="scripts/views/book-view.js"></script>   
     <script src="scripts/views/error-view.js"></script>
-    <script>
-      $(document).ready(app.Book.fetchAll(app.bookView.initIndexPage));
-    </script>
+    <script src="scripts/views/routes.js"></script>
 </body>
 </html>

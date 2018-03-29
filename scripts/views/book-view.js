@@ -9,13 +9,20 @@ var app = app || {};
   bookView.initIndexPage = () => {
     $('.container').hide();
     $('.book-view').show();
-    app.Book.all.map(a => $('#book-list').append(a.toHtml()));
+    app.Book.all.map(a => $('#book-list').append(a.toHtml('#book-list')));
 
+  };
+
+  bookView.initDetailPage = (ctx) => {
+    $('.container').hide();
+    $('.detail-view').show();
+    let selected = app.Book.all.filter(el => el.book_id = ctx.params.book_id);
+    $('#detail-list').append(selected[0].toHtml('#detail-list'));
   };
 
   bookView.initNewBookPage = () => {
     $('.container').hide();
-    $('#write').show();
+    $('.form-view').show();
 
     $('#book-form').on('submit', bookView.create);
 
