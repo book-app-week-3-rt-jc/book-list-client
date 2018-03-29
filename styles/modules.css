@@ -10,3 +10,48 @@ footer {
     background-color: black;
     color: white;
 }
+
+.heading-group-h1{
+    float:left;
+    padding: 0 0 .2em 1em;
+}
+
+.icon-menu {
+    background-color: gray;
+    float: right;
+    font-size: 3em; 
+    margin:0;
+    padding:0;
+}
+
+.main-nav{
+    padding: 0.1em;
+}
+
+.main-nav ul{
+    display:block;
+    padding:0;
+    list-style: none;
+    clear:both;
+}
+
+.main-nav:hover ul{
+    display: block;
+}
+
+.main-nav a {
+    text-decoration: none;
+    background-color: green;
+    color: red;
+    border: 5px solid green;
+    border-radius: 35vw;
+}
+
+label {
+    display: block;
+    margin: 4.2vw;
+}
+
+button {
+    margin: 0vw 0vw 4.2vw 4.2vw;
+}

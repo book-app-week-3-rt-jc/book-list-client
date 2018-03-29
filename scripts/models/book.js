@@ -60,8 +60,20 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   };
 
   Book.prototype.insertBook = function(callback){
-    $.post(`${ENV.apiUrl}/api/v1/books/new`, {title:this.title, author:this.author, isbn:this.isbn, image_url:this.image_url, description:this.description})
+    $.post(`${ENV.apiUrl}/api/v1/books`, {title:this.title, author:this.author, isbn:this.isbn, image_url:this.image_url, description:this.description})
       .then(callback);
+  };
+
+  Book.create = event => {
+    event.preventDefault();
+    let book = new Book({
+      title: $(`#book-title`).val(),
+      author: $(`#book-author`).val(),
+      isbn: $(`#book-isbn`).val(),
+      image_url: $(`#book-image_url`).val(),
+      description: $(`#book-description`).val(),
+    });
+    book.insertBook();
   };
 
   module.Book = Book;
