@@ -76,6 +76,39 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
     book.insertBook();
   };
 
+  Book.destroy = (ctx, callback) => {
+    $.ajax({
+      url:`${ENV.apiUrl}/api/v1/books/${ctx.params.book_id}`,
+      method: 'DELETE'
+    })
+      .then(console.log)
+      .then(callback);
+  };
+
+  Book.populateUpdate = ctx => {
+    let selected = Book.all.filter(el => el.book_id = ctx.params.book_id)[0];
+    $('#update-title').text(selected.title);
+    $('#update-author').text(selected.author);
+    $('#update-isbn').text(selected.isbn);
+    $('#update-image_url').text(selected.image_url);
+    $('#update-description').text(selected.description);
+  };
+
+  Book.update = (ctx, callback) =>{
+    $.ajax({
+      url:`${ENV.apiUrl}/api/v1/books/${ctx.params.book_id}`,
+      method: 'PUT',
+      data:{
+        title:$(`#update-title`).val(),
+        author:$(`#update-author`).val(),
+        isbn:$(`#update-isbn`).val(),
+        image_url:$(`#update-image_url`).val(),
+        description:$(`#update-description`).val()
+      }
+    })
+      .then(console.log)
+      .then(callback);
+  };
   module.Book = Book;
 
 })(app);

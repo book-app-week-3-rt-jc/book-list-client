@@ -32,6 +32,16 @@ var app = app || {};
 
   };
 
+  bookView.initUpdateFormPage = (ctx) => {
+    $(`.container`).hide();
+    $(`.update-view`).show();
+    $(`#update-form`).append(app.Book.populateUpdate);
+    $(`#update-form`).on('submit', ctx => app.Book.update(ctx));
+
+
+  };
+
+
 
 
   module.bookView = bookView;
