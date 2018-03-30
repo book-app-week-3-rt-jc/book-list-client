@@ -32,10 +32,26 @@
                 <li><h2>{{author}}</h2></li>
                 <li><h3>{{isbn}}</h3></li>
                 <li><p>{{description}}</p></li>
+                <li><button data_id="{{book_id}}" id="delete-button">Delete</button></li>
+                <li><button data_id="{{book_id}}" id="update-button">Update</button></li>
                 <li><a href="/">Home</a></li>
             </ul>
         </div>
         </script>
+        <script id="update-form-template" type="text/x-handlebars-template"> 
+            <div>
+                <img src="{{image_url}}">
+                <ul>
+                    <li><h1>{{title}}</h1></li>
+                    <li><h2>{{author}}</h2></li>
+                    <li><h3>{{isbn}}</h3></li>
+                    <li><p>{{description}}</p></li>
+                    <li><button data_id="{{book_id}}" id="delete-button">Delete</button></li>
+                    <li><button data_id="{{book_id}}" id="update-button">Update</button></li>
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </div>
+            </script>
 </head>
 <body>
     <header class="site-header clearfix">
@@ -81,6 +97,35 @@
         </form>
     
     </section>
+    
+    <section id="update" class="update-view container">
+
+        <form action="#" id="update-form">
+            <label>
+                <input type="text" id="update-title" placeholder="update title" required>
+            </label>
+            
+            <label>
+                <input type="text" id="update-author" placeholder="update author" required>
+            </label> 
+            
+            <label>
+                <input type="text" id="update-isbn" placeholder="update isbn" required>
+            </label> 
+            
+            <label>
+                <input type="text" id="update-image_url" placeholder="update image url" required>
+            </label>
+            
+            <label>
+                <textarea id="update-description" rows="8" cols="40" required></textarea>
+            </label>
+
+            <button type="submit">Submit</button>
+        
+        </form>
+
+    </section>
 
     <footer></footer>
     
@@ -90,7 +135,7 @@
     crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="scripts/models/book.js"></script>
+    <script src="scripts/models/book.js"></script>fd
     <script src="scripts/views/book-view.js"></script>   
     <script src="scripts/views/error-view.js"></script>
     <script src="scripts/views/routes.js"></script>
